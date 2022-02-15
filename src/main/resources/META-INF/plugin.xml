@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>org.example.JBPluginDelta</id>
+    <name>JBPluginDelta</name>
+    <vendor email="lm82_007@163.com" url="">JBPluginDelta</vendor>
+
+    <description><![CDATA[
+        JBPluginDelta.<br>
+        <em>This is a jetbrains plugin, delta edition.</em>
+        ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="com.pyramid.jbplugindelta.config.ConfigService"/>
+        <applicationConfigurable instance="com.pyramid.jbplugindelta.config.ConfigEntry"/>
+    </extensions>
+
+    <actions>
+        <group id="JBPDemoAlpha.SampleMenu" text="Sample Menu" description="Sample menu">
+            <!-- Add your actions here -->
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="JBPDemoAlpha.TextBox" class="com.pyramid.jbplugindelta.action.TextBox" text="Text Box"
+                    description="Text Box"/>
+        </group>
+    </actions>
+</idea-plugin>
